@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS article(
     reference integer PRIMARY KEY,
     intitule text,
     descriptionArticle text,
+    prix integer,
     photo text,
     id_typeFigurine integer REFERENCES typeDeFigurine(id_type),
     id_licence integer REFERENCES licence(id_licence)
@@ -34,6 +35,7 @@ CREATE TABLE IF NOT EXISTS article(
 CREATE TABLE IF NOT EXISTS est_disponible(
     id_article integer REFERENCES article(reference),
     id_magasin integer REFERENCES magasin(id_magasin),
+    quantite integer,
     PRIMARY KEY(id_article,id_magasin)
 );
 
