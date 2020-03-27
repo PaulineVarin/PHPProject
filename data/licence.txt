@@ -2,3 +2,7 @@
 2|Marvel
 3|Star Wars
 4|Stranger Things
+5|Harry Potter
+6|Naruto
+7|Overwatch
+8|Disney
