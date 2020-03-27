@@ -6,3 +6,6 @@
 6|Naruto
 7|Overwatch
 8|Disney
+9|DC
+10|Oiseaux
+11|Snoopy
