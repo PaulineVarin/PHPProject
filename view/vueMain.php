@@ -11,4 +11,8 @@
 <h1>Figurine House</h1>
 </body>
 
+<?php
+include("../controleur/menu.ctrl.php");
+?>
+
 </html>

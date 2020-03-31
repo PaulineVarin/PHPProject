@@ -1,4 +1,6 @@
 <?php
-include("../view/main.php");
 
+
+
+include("../view/vueMain.php");
 ?>
