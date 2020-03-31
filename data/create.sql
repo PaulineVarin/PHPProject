@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS licence(
 CREATE TABLE IF NOT EXISTS marque(
     id_marque integer PRIMARY KEY,
     nom text,
-    descriptionMarque text
+    descriptionMarque text,
+    photo text;
 );
 
 CREATE TABLE IF NOT EXISTS typeDeFigurine(
