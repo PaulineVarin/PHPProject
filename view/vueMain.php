@@ -2,17 +2,16 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type = "tex/css" href="" media="screen">
-    <meta charset = "utf-8">
-    <title>main</title>
+    <link rel="stylesheet" href="../view/style.css" type = "tex/css">
+    <meta charset="UTF-8"/>
+    <title>Main</title>
 </head>
 
 <body>
 <h1>Figurine House</h1>
-</body>
-
 <?php
-include("../controleur/menu.ctrl.php");
+include("../controler/menu.ctrl.php");
 ?>
 
+</body>
 </html>
