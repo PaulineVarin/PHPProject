@@ -1,21 +1,21 @@
 <?php
 
-class Magasin() {
+class Magasin {
     private $id_magasin;
     private $nom;
-    private $description;
+    private $descriptionMagasin;
 
     //Getters
     function getId():int {
         return $this->id_magasin;
     }
 
-    function getNom() {
+    function getNom():string {
         return $this->nom;
     }
 
-    function getDescription() {
-        return $this->description;
+    function getDescription():string {
+        return $this->descriptionMagasin;
     }
 }
 
