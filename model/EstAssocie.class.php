@@ -4,11 +4,11 @@ class EstAssocie {
     private $id_typeFigurine;
 
     //Getters
-    function getIdLicence() {
+    function getIdLicence():int {
         return $this->id_licence;
     }
 
-    function getIdTypeFigurine() {
+    function getIdTypeFigurine():int {
         return $this->id_typeDeFigurine;
     }
 }

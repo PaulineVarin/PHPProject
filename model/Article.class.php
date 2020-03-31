@@ -11,7 +11,6 @@ class Article {
     //Getters
     public function getRef():int {
         return $this->reference;
-
     }
 
     public function getIntitule():string {
@@ -39,5 +38,4 @@ class Article {
         return $this->idLicence;
     }
 }
-
 ?>
