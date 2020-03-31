@@ -3,6 +3,7 @@ class Marque {
     private $id_marque;
     private $nom;
     private $descriptionMarque;
+    private $photo
 
     //Getters
     function getId():int{
@@ -15,6 +16,10 @@ class Marque {
 
     function getDescription():string {
         return $this->descriptionMarque;
+    }
+
+    function getNomPhoto() {
+        return $this->photo;
     }
 }
 

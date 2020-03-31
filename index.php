@@ -1,5 +1,3 @@
 <?php
-
-print("<h1>Hello index.php</h1>");
-
+header('Location: controler/main.ctrl.php');
 ?>
