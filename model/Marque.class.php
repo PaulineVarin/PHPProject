@@ -3,7 +3,7 @@ class Marque {
     private $id_marque;
     private $nom;
     private $descriptionMarque;
-    private $photo
+    private $photo;
 
     //Getters
     function getId():int{
@@ -18,7 +18,7 @@ class Marque {
         return $this->descriptionMarque;
     }
 
-    function getNomPhoto() {
+    function getNomPhoto():string {
         return $this->photo;
     }
 }

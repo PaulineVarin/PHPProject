@@ -1,5 +1,6 @@
 <?php
 require_once("../model/Article.class.php");
+require_once("../model/Marque.class.php");
 
 class DAO {
     // L'objet local PDO de la base de donnée
@@ -29,6 +30,24 @@ class DAO {
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
         return $res[0];
+    }
+
+    //Acces à une licence
+    //Retourne un objet de la classe Licence connaissant son id 
+
+    //Acces à toutes les marque
+    //Retourne un tableau contenant un objet Marque pour chaque marque présente dans la BD
+    function getAllMarques():array {
+        $res = array();
+        $sql = "SELECT * from marque";
+
+        $req_select = $this->db->prepare($sql);
+        $req_select->execute();
+
+        $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Marque');
+
+        return $res;
+
     }
 
     //Acces aux noms des types de figurines
@@ -76,5 +95,8 @@ class DAO {
         }
         return $res;
     }
+
+    //Acces à une liste de n articles
+    //Retourne un tableau contenant n articles
 }
 ?>

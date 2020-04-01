@@ -1,3 +1,6 @@
+<header>
+    <h1>Figurine House</h1>
+</header>
 <nav>
 <ul>
 <li><p>Nos figurines</p>
@@ -27,7 +30,7 @@ foreach($nomsLicences as $id=>$nom) {
 <?php
 foreach($nomsMarques as $id=>$nom) {
     $id_marque = $id+1;
-    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_marque=$id_marque\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/affichermarque.ctrl.php?id_marque=$id_marque\">$nom</a></li>\n");
 }
 ?>
     </ul>
