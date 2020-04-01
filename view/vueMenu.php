@@ -1,5 +1,6 @@
 <nav>
-<ul><li><p>Nos figurines</p>
+<ul>
+<li><p>Nos figurines</p>
     <ul>
 <?php
 foreach($nomsTypesFigurines as $id=>$nom) {
@@ -32,6 +33,6 @@ foreach($nomsMarques as $id=>$nom) {
     </ul>
 </li>
 
-<li><a href="../controler/affichermagasins.ctrl.php">Nos magasins</a></li>
+<li id="exception"><a href="../controler/affichermagasins.ctrl.php">Nos magasins</a></li>
 </ul>
 </nav>

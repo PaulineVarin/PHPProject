@@ -1,9 +1,14 @@
+body {
+    text-align: center;
+}
+
 ul {
     list-style: none;
 }
 
 nav>ul {
     display: flex;
+    justify-content: center;
 }
 
 nav ul li {
@@ -13,12 +18,13 @@ nav ul li {
 li>p {
     margin-bottom: 0%;
     margin-top: 0%;
+    width: 150px;;
 }
 
 li>ul {
+    padding: 10px;
     position: absolute;
     background-color: white;
-    padding: 0%;
     text-align: left;
     visibility: hidden;
 }
@@ -27,9 +33,10 @@ li:hover>ul {
     visibility: visible;
 }
 
-li>p, li>a{
+li>a{
     display: inline-block;
-    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
     border-collapse: collapse;
     width: 150px;
 }
@@ -37,4 +44,19 @@ li>p, li>a{
 li>a:link, li>a:visited {
     text-decoration: none;
     color: black;
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+article {
+    text-align: center;
+    margin-right: 50px;;
+}
+
+article img {
+    width: 300px;
 }
