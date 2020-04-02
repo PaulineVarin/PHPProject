@@ -3,18 +3,6 @@ require_once("../model/DAO.class.php");
 $config = parse_ini_file('../config/config.ini');
 $db = new DAO($config['data_path']);
 
-/*vérifier de quel type de filtrage il s'agit 
-- licence idLicence x
-- marque  idMarque y
-- type de figurine idType x 
--quel magasin idMagasin z 
-(proposer option tout)si on force alors on affiche tout sans distinction
-
-récupérer l'id du 1er et dernier article de la page $firstRef $lastRef
-calculer la ref qui suit le dernier article $nextRef = $lastRef+1
-calculer la ref qui précède de n l'article courant $prevRef= $firstRef-n
-*/
-
 
 if(isset($_GET['ref'])) {
     $ref = $_GET['ref'];
@@ -37,7 +25,7 @@ if(isset($_GET['id_licence'])) {
     $idcat = $_GET['id_marque'];
     $cat = 'id_marque';
     $tableauArticles = $db->getArticlesMarque($ref,$idcat,$config['nb_images']);
-    
+
 }else {
     $idcat = 0;
     $cat ='all';
