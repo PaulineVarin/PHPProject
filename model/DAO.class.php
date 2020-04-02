@@ -107,7 +107,7 @@ class DAO {
     function getArticle(int $i): Article{
         $sql = "SELECT * FROM article WHERE reference = :ref";
         $req_select = $this->db->prepare($sql);
-        $req_select ->execute(array('ref'=>$i));
+        $req_select ->execute(array(':ref'=>$i));
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
         return $res[0];
@@ -120,7 +120,7 @@ class DAO {
         $sql = "SELECT * FROM article WHERE reference >= :ref  ORDER BY reference ASC LIMIT :nb";
 
         $req_select = $this->db->prepare($sql);
-        $req_select->execute(array('ref'=>$ref,'nb'=>$nb));
+        $req_select->execute(array(':ref'=>$ref,':nb'=>$nb));
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
         return $res;
@@ -159,15 +159,16 @@ class DAO {
         if($nomFiltre=='all'){
             $sql = "SELECT * FROM article WHERE reference > :ref ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array('ref'=>$ref));
+            $req_select->execute(array(':ref'=>$ref));
 
-        }elseif($nomFiltre=='titi') {
-            print("totot");
-
+        }elseif($nomFiltre=='id_marque') {
+            $sql = "SELECT * from article WHERE reference >:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=$ref_categorie) ORDER BY reference ASC LIMIT 1";
+            $req_select = $this->db->prepare($sql);
+            $req_select->execute(array(':ref'=>$ref));
         }else {
             $sql = "SELECT * FROM article WHERE reference > :ref AND $nomFiltre = :refcat ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array('ref'=>$ref,':refcat'=>$ref_categorie));
+            $req_select->execute(array(':ref'=>$ref,':refcat'=>$ref_categorie));
         }
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
@@ -187,7 +188,7 @@ class DAO {
             $req_select->execute(array(':ref' => $ref,':nb'=>$nb));
 
         }elseif($nomFiltre=='id_marque'){
-            $sql = "SELECT * from article WHERE reference<:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=:ref) ORDER BY reference DESC LIMIT :nb";
+            $sql = "SELECT * from article WHERE reference<:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=$ref_categorie) ORDER BY reference DESC LIMIT :nb";
             $req_select = $this->db->prepare($sql);
             $req_select->execute(array(':ref' => $ref,':nb'=>$nb));
 

@@ -37,10 +37,8 @@ if(isset($_GET['id_licence'])) {
     $idcat = $_GET['id_marque'];
     $cat = 'id_marque';
     $tableauArticles = $db->getArticlesMarque($ref,$idcat,$config['nb_images']);
-
-}
-
-else {
+    
+}else {
     $idcat = 0;
     $cat ='all';
     $tableauArticles = $db->getNArticles($ref,$config['nb_images']);
