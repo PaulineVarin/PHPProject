@@ -8,7 +8,7 @@
 <?php
 foreach($nomsTypesFigurines as $id=>$nom) {
     $id_type = $id+1;
-    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_type=$id_type\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/afficherarticles.ctrl.php?idType=$id_type\">$nom</a></li>\n");
 }
 ?>
     </ul>
@@ -19,7 +19,7 @@ foreach($nomsTypesFigurines as $id=>$nom) {
 <?php
 foreach($nomsLicences as $id=>$nom) {
     $id_licence = $id+1;
-    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_licence=$id_licence\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/afficherarticles.ctrl.php?idLicence=$id_licence\">$nom</a></li>\n");
 }
 ?>
     </ul>
@@ -30,7 +30,7 @@ foreach($nomsLicences as $id=>$nom) {
 <?php
 foreach($nomsMarques as $id=>$nom) {
     $id_marque = $id+1;
-    print("<li><a href=\"../controler/affichermarque.ctrl.php?id_marque=$id_marque\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/affichermarque.ctrl.php?idMarque=$id_marque\">$nom</a></li>\n");
 }
 ?>
     </ul>

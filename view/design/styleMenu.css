@@ -1,0 +1,54 @@
+body {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+nav>ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    position : relative;
+}
+
+li>p {
+    margin-bottom: 0%;
+    margin-top: 0%;
+    width: 150px;;
+}
+
+li>ul {
+    padding: 10px;
+    position: absolute;
+    background-color: white;
+    text-align: left;
+    visibility: hidden;
+}
+
+li:hover>ul {
+    visibility: visible;
+}
+
+li>a{
+    display: inline-block;
+    border-bottom: 1px solid rgba(95, 94, 99, 0.541);
+    border-collapse: collapse;
+    width: 150px;
+}
+
+li>a:link, li>a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+nav>ul>li:last-child a {
+    border: none;
+}
+
+
+
+

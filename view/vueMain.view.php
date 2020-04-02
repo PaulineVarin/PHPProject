@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+    <link rel="stylesheet" href="../view/design/styleMenu.css" type="text/css">
     <link rel="stylesheet" href="../view/design/styleMain.css" type="text/css">
     <meta charset="UTF-8" />
     <title>Main</title>
@@ -17,10 +18,11 @@
         <div id="mes_articles">
         <?php
             foreach($tableauArticles as $id=>$elem) {
+                $idArticle = $elem->getRef();
                 $chemin = $config['image_path'].'articles/'.$elem->getIdLicence().'/'.$elem->getNomPhoto();
                 print("<article>\n");
+                print("<a href =\"../controler/presentationarticle.ctrl.php?idArticle=$idArticle\"><img src=\"$chemin\" alt=\"\"/></a>\n");
                 print("<h3>{$elem->getIntitule()}</h3>\n");
-                print("<a href =\"../controler/affichermarque.ctrl.php?idMarque=\"><img src=\"$chemin\" alt=\"\"/></a>\n");
                 print ("</article>\n");
             }
         ?>
@@ -42,7 +44,7 @@
         ?>
         </div>
     </section>
-    
+
     <footer>
         <div>
             <article>

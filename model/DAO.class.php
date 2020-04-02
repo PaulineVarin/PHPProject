@@ -32,9 +32,6 @@ class DAO {
         return $res[0];
     }
 
-    //Acces à une licence
-    //Retourne un objet de la classe Licence connaissant son id 
-
     //Acces à toutes les marque
     //Retourne un tableau contenant un objet Marque pour chaque marque présente dans la BD
     function getAllMarques():array {
@@ -108,5 +105,16 @@ class DAO {
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
         return $res;
     }
+
+    //Acces à la liste des articles en fonction d'une licence
+
+    //Acces à la liste des articles en fonction d'une marque 
+
+    //Acces à la liste des articles en fonction d'un type de Figurine
+
+    //Acces à la liste des articles en fonction d'un type de leur dispo
+
+
+
 }
 ?>
