@@ -159,7 +159,8 @@ class DAO {
             return $res[0]->getRef();
         }
     }
-
+    // Acces à la référence qui précède de n la référence $ref dans l'ordre des références en fonction ou non d'un catégorie
+    // Retourne -1 si pas de $ref précédente
     function prevN(int $ref,int $ref_categorie, string $nomFiltre,int $nb):int {
         $listeArticles = array();
         if($nomFiltre=='all') {
@@ -173,7 +174,7 @@ class DAO {
         }
         
         $listeArticles = $req_SELECT->fetchAll(PDO::FETCH_CLASS,'Article'); 
-        
+
         if(count($listeArticles)!=0) {
             return $listeArticles[count($listeArticles)-1] ->getRef();
         }
