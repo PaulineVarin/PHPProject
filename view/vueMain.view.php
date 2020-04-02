@@ -14,7 +14,7 @@ include("../controler/menu.ctrl.php");
 //récupérer au moins 3 articles
 //h3 = nomlicence
 //img = son image
-//
+//lien vers l'affichage en fonction d'un licence
 ?>
     <section>
         <h2>Nos nouveautés</h2>
