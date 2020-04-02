@@ -38,7 +38,7 @@
                 $idMarque = $id+1;
                 print("<article>\n");
                 print("<h3>{$elem->getNom()}</h3>");
-                print("<a href =\"../controler/affichermarque.ctrl.php?idMarque=$idMarque\"><img src=\"$chemin\" alt=\"\"/></a>\n");
+                print("<a href =\"../controler/affichermarque.ctrl.php?id_marque=$idMarque\"><img src=\"$chemin\" alt=\"\"/></a>\n");
                 print("</article>\n");
             }
         ?>

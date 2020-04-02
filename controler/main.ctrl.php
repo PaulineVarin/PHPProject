@@ -7,7 +7,7 @@ $db = new DAO($config['data_path']);
 $tableauMarques = $db->getAllMarques();
 $nb_articles = $db->getNbArticles();
 
-$tableauArticles = $db->getNArticles($config['nb_images_main'],$nb_articles-2);
+$tableauArticles = $db->getNArticles($nb_articles-2,$config['nb_images_main']);
 
 include("../view/vueMain.view.php");
 ?>

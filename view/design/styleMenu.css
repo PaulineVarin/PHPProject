@@ -40,7 +40,7 @@ li>a{
     width: 150px;
 }
 
-li>a:link, li>a:visited {
+a:link, a:visited {
     text-decoration: none;
     color: black;
 }

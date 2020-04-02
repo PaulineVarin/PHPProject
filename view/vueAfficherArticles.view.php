@@ -20,8 +20,9 @@
         <section id="mes_articles">
             <?php
 foreach ($tableauArticles as $id=>$elem) {
+    $idArticle = $elem->getRef();
     $chemin = $config['image_path'].'articles/'.$elem->getIdLicence().'/'.$elem->getNomPhoto();
-    print("<a href =\"../controler/presentationarticle.ctrl.php\"><img src=\"$chemin\" alt=\"\"/></a>\n");
+    print("<a href =\"../controler/presentationarticle.ctrl.php?idArticle=$idArticle\"><img src=\"$chemin\" alt=\"\"/></a>\n");
 }
 print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRef\">Précédent</a>");
 print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Suiv</a>");

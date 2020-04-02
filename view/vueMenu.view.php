@@ -1,5 +1,5 @@
 <header>
-    <h1>Figurine House</h1>
+    <h1><a href="../controler/main.ctrl.php">Figurine House</a></h1>
 </header>
 <nav>
 <ul>
@@ -8,7 +8,7 @@
 <?php
 foreach($nomsTypesFigurines as $id=>$nom) {
     $id_type = $id+1;
-    print("<li><a href=\"../controler/afficherarticles.ctrl.php?idType=$id_type\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_typeFigurine=$id_type\">$nom</a></li>\n");
 }
 ?>
     </ul>
@@ -30,7 +30,7 @@ foreach($nomsLicences as $id=>$nom) {
 <?php
 foreach($nomsMarques as $id=>$nom) {
     $id_marque = $id+1;
-    print("<li><a href=\"../controler/affichermarque.ctrl.php?idMarque=$id_marque\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_marque=$id_marque\">$nom</a></li>\n");
 }
 ?>
     </ul>

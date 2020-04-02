@@ -26,8 +26,21 @@ if(isset($_GET['ref'])) {
 if(isset($_GET['id_licence'])) {
     $idcat = $_GET['id_licence'];
     $cat = 'id_licence';
-    $tableauArticles = $db->getArticlesLicence($ref,$idcat,$config['nb_images']);
-}else {
+    $tableauArticles = $db->getArticlesFiltre($ref,$idcat,$cat,$config['nb_images']);
+
+}elseif(isset($_GET['id_typeFigurine'])) {
+    $idcat = $_GET['id_typeFigurine'];
+    $cat = 'id_typeFigurine';
+    $tableauArticles = $db->getArticlesFiltre($ref,$idcat,$cat,$config['nb_images']);
+
+}elseif(isset($_GET['id_marque'])) {
+    $idcat = $_GET['id_marque'];
+    $cat = 'id_marque';
+    $tableauArticles = $db->getArticlesMarque($ref,$idcat,$config['nb_images']);
+
+}
+
+else {
     $idcat = 0;
     $cat ='all';
     $tableauArticles = $db->getNArticles($ref,$config['nb_images']);

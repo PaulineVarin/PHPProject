@@ -115,7 +115,7 @@ class DAO {
 
     //Acces à une liste de nb articles à partir de la reférence $ref
     //Retourne un tableau contenant n articles
-    function getNArticles($ref,$nb):array {
+    function getNArticles(int $ref,int $nb):array {
         $res = array ();
         $sql = "SELECT * FROM article WHERE reference >= :ref  ORDER BY reference ASC LIMIT :nb";
 
@@ -126,17 +126,31 @@ class DAO {
         return $res;
     }
 
-    //Acces à la liste de n articles en fonction d'une licence
-    //Retourne un tableau contenant tout les articles d'une même licence
-    function getArticlesLicence(int $ref,$idLicence,int $nb):array {
+    //Acces à la liste de n articles en fonction d'un filtre (licence ou type )
+    //Retourne un tableau contenant n articles en fonction d'un filtre (licence ou type)
+    function getArticlesFiltre(int $ref,int $idFiltre,string $nomFiltre,int $nb):array {
         $res = array();
-        $sql = "SELECT * FROM article WHERE id_licence = :licence AND reference >=:ref ORDER BY reference ASC LIMIT :nb";
+        $sql = "SELECT * FROM article WHERE $nomFiltre = :filtre AND reference >=:ref ORDER BY reference ASC LIMIT :nb";
 
         $req_select = $this->db->prepare($sql);
-        $req_select->execute(array(':licence'=>$idLicence,':ref'=>$ref,':nb'=>$nb));
+        $req_select->execute(array(':filtre'=>$idFiltre,':ref'=>$ref,':nb'=>$nb));
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
         return $res;
+    }
+
+    //Acces à la liste de n articles en fonction d'une marque
+    //Retourne un tableau contenant n articles en fonction d'une marque 
+    function getArticlesMarque(int $ref,int $idFiltre,int $nb):array {
+        $res = array();
+        $sql = "SELECT * from article WHERE reference>=:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=$idFiltre) ORDER BY reference ASC LIMIT :nb";
+        
+        $req_select = $this->db->prepare($sql);
+        $req_select->execute(array(':ref' => $ref,':nb'=>$nb));
+
+        $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
+        return $res;
+
     }
 
     // Acces à la référence qui suit la référence $ref dans l'ordre des références en fonction ou non d'un catégorie
@@ -146,6 +160,10 @@ class DAO {
             $sql = "SELECT * FROM article WHERE reference > :ref ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
             $req_select->execute(array('ref'=>$ref));
+
+        }elseif($nomFiltre=='titi') {
+            print("totot");
+
         }else {
             $sql = "SELECT * FROM article WHERE reference > :ref AND $nomFiltre = :refcat ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
@@ -165,15 +183,21 @@ class DAO {
         $listeArticles = array();
         if($nomFiltre=='all') {
             $sql ="SELECT * FROM article WHERE reference <:ref ORDER BY reference DESC LIMIT :nb";
-            $req_SELECT = $this->db->prepare($sql);
-            $req_SELECT->execute(array(':ref' => $ref,':nb'=>$nb));
+            $req_select = $this->db->prepare($sql);
+            $req_select->execute(array(':ref' => $ref,':nb'=>$nb));
+
+        }elseif($nomFiltre=='id_marque'){
+            $sql = "SELECT * from article WHERE reference<:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=:ref) ORDER BY reference DESC LIMIT :nb";
+            $req_select = $this->db->prepare($sql);
+            $req_select->execute(array(':ref' => $ref,':nb'=>$nb));
+
         }else {
             $sql ="SELECT * FROM article WHERE reference <:ref AND $nomFiltre = :refcat ORDER BY reference DESC LIMIT :nb";
-            $req_SELECT = $this->db->prepare($sql);
-            $req_SELECT->execute(array(':ref' => $ref,':refcat'=>$ref_categorie,':nb'=>$nb));
+            $req_select = $this->db->prepare($sql);
+            $req_select->execute(array(':ref' => $ref,':refcat'=>$ref_categorie,':nb'=>$nb));
         }
         
-        $listeArticles = $req_SELECT->fetchAll(PDO::FETCH_CLASS,'Article'); 
+        $listeArticles = $req_select->fetchAll(PDO::FETCH_CLASS,'Article'); 
 
         if(count($listeArticles)!=0) {
             return $listeArticles[count($listeArticles)-1] ->getRef();
