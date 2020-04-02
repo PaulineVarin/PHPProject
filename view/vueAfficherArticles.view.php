@@ -9,19 +9,27 @@
 </head>
 
 <body>
-<?php
+    <?php
     include("../controler/menu.ctrl.php");
     print("\n");
-
-    
 ?>
-<div>
-<section id="Filtrage">
+    <div>
+        <section id="Filtrage">
 
-</section>
-<section id="mes_articles">
+        </section>
+        <section id="mes_articles">
+            <?php
+foreach ($tableauArticles as $id=>$elem) {
+    $chemin = $config['image_path'].'articles/'.$elem->getIdLicence().'/'.$elem->getNomPhoto();
+    print("<a href =\"../controler/presentationarticle.ctrl.php\"><img src=\"$chemin\" alt=\"\"/></a>\n");
+}
+print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRef\">Précédent</a>");
+print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Suiv</a>");
 
-</section>
-</div>
+?>
+
+        </section>
+    </div>
 </body>
+
 </html>

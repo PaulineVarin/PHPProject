@@ -19,7 +19,7 @@ foreach($nomsTypesFigurines as $id=>$nom) {
 <?php
 foreach($nomsLicences as $id=>$nom) {
     $id_licence = $id+1;
-    print("<li><a href=\"../controler/afficherarticles.ctrl.php?idLicence=$id_licence\">$nom</a></li>\n");
+    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_licence=$id_licence\">$nom</a></li>\n");
 }
 ?>
     </ul>

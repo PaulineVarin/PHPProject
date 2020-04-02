@@ -115,7 +115,7 @@ class DAO {
 
     //Acces à une liste de nb articles à partir de la reférence $ref
     //Retourne un tableau contenant n articles
-    function getNArticles($nb,$ref):array {
+    function getNArticles($ref,$nb):array {
         $res = array ();
         $sql = "SELECT * FROM article WHERE reference >= :ref  ORDER BY reference ASC LIMIT :nb";
 
@@ -126,21 +126,21 @@ class DAO {
         return $res;
     }
 
-    //Acces à la liste des articles en fonction d'une licence
+    //Acces à la liste de n articles en fonction d'une licence
     //Retourne un tableau contenant tout les articles d'une même licence
-    function getArticlesLicence($id_licence):array {
+    function getArticlesLicence(int $ref,$idLicence,int $nb):array {
         $res = array();
-        $sql = "SELECT * FROM article WHERE id_licence = :licence";
+        $sql = "SELECT * FROM article WHERE id_licence = :licence AND reference >=:ref ORDER BY reference ASC LIMIT :nb";
 
         $req_select = $this->db->prepare($sql);
-        $req_select->execute(array(':licence'=>$id_licence));
+        $req_select->execute(array(':licence'=>$idLicence,':ref'=>$ref,':nb'=>$nb));
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
         return $res;
     }
 
     // Acces à la référence qui suit la référence $ref dans l'ordre des références en fonction ou non d'un catégorie
-    // Retourne -1 si $ref est la dernière référence
+    // Retourne -1 si ref est la dernière référence
     function nextN (int $ref,int $ref_categorie, string $nomFiltre):int {
         if($nomFiltre=='all'){
             $sql = "SELECT * FROM article WHERE reference > :ref ORDER BY reference ASC LIMIT 1";
@@ -160,7 +160,7 @@ class DAO {
         }
     }
     // Acces à la référence qui précède de n la référence $ref dans l'ordre des références en fonction ou non d'un catégorie
-    // Retourne -1 si pas de $ref précédente
+    // Retourne -1 si pas de ref précédente
     function prevN(int $ref,int $ref_categorie, string $nomFiltre,int $nb):int {
         $listeArticles = array();
         if($nomFiltre=='all') {

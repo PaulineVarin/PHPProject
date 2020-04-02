@@ -20,32 +20,33 @@ if(isset($_GET['ref'])) {
     $ref = $_GET['ref'];
 }else {
     $ref = 1;
+    print("Ma ref est $ref");
 }
 
-if(isset($_GET['idLicence'])) {
-    $idcat = $_GET['idLicence'];
+if(isset($_GET['id_licence'])) {
+    $idcat = $_GET['id_licence'];
     $cat = 'id_licence';
-
-}elseif (isset($_GET['idMarque'])) {
-    $idcat = $_GET['idMarque'];   
-
-}elseif (isset($_GET['idType'])) {
-    $cat = 'id_typeFigurine';
-    
-}elseif(isset($_GET['idMagasin'])) { 
-
+    $tableauArticles = $db->getArticlesLicence($ref,$idcat,$config['nb_images']);
 }else {
     $idcat = 0;
     $cat ='all';
-    $tableauArticles = $db->getNArticles($config['nb_images'],$ref);
+    $tableauArticles = $db->getNArticles($ref,$config['nb_images']);
 }
 
 $firstRef = $tableauArticles[0]->getRef();
 $lastRef = $tableauArticles[count($tableauArticles)-1]->getRef();
 
-//vérifier avec le 1 
+
 $nextRef = $db->nextN($lastRef,$idcat,$cat); print("next ref : $nextRef");
-$prevRef = $db->prevN($firstRef,$idcat,$cat,$config['nb_images']); print("prev ref : $prevRef");;
+$prevRef = $db->prevN($firstRef,$idcat,$cat,$config['nb_images']); print("prev ref : $prevRef");
+
+if($nextRef == -1) {
+    $nextRef = $lastRef;
+}
+
+if($prevRef == -1) {
+    $prevRef = $firstRef;
+}
 
 
 include("../view/vueAfficherArticles.view.php");
