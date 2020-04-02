@@ -102,6 +102,20 @@ class DAO {
         return $res;
     }
 
+    function getallNomsMagasins():array {
+        $res = array();
+        $sql = "SELECT nom FROM magasin ";
+
+        $req_select = $this->db->prepare($sql);
+        $req_select ->execute();
+
+        while($row = $req_select->fetch(PDO::FETCH_NUM)) {
+            array_push($res,$row[0]);
+        }
+        return $res;
+
+    }
+
     // Acces à un article 
     // Retourne un objet de la classe Article connaissant sa référence
     function getArticle(int $i): Article{

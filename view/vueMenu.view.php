@@ -36,6 +36,15 @@ foreach($nomsMarques as $id=>$nom) {
     </ul>
 </li>
 
-<li id="exception"><a href="../controler/affichermagasins.ctrl.php">Nos magasins</a></li>
+<li><p>Nos magasins</p>
+    <ul>
+<?php
+foreach($nomsMagasins as $id=>$nom) {
+    $id_magasin = $id+1;
+    print("<li><a href=\"../controler/afficherarticles.ctrl.php?id_magasin=$id_magasin\">$nom</a></li>\n");
+}
+?>
+    </ul>
+</li>
 </ul>
 </nav>
