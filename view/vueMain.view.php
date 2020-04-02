@@ -19,6 +19,9 @@ include("../controler/menu.ctrl.php");
     <section>
         <h2>Nos nouveautés</h2>
         <div id="mes_articles">
+        <?php
+
+        ?>
             <article>
                 <h3>Dans une galaxie lointaine...</h3>
                 <img src="../view/design/img/temp.png" alt="Image de présentation" />

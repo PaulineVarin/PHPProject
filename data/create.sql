@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS marque(
     id_marque integer PRIMARY KEY,
     nom text,
     descriptionMarque text,
-    photo text;
+    photo text
 );
 
 CREATE TABLE IF NOT EXISTS typeDeFigurine(
