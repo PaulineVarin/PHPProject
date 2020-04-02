@@ -31,11 +31,11 @@ class Article {
     }
 
     public function getIdTypeFigurine():int {
-        return $this->idTypeFigurine;
+        return $this->id_typeFigurine;
     }
 
     public function getIdLicence():int {
-        return $this->idLicence;
+        return $this->id_licence;
     }
 }
 ?>

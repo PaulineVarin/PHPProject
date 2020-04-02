@@ -98,5 +98,15 @@ class DAO {
 
     //Acces à une liste de n articles
     //Retourne un tableau contenant n articles
+    function getNArticles($nb):array {
+        $res = array ();
+        $sql = "SELECT * from article ORDER BY reference DESC LIMIT :nb";
+
+        $req_select = $this->db->prepare($sql);
+        $req_select->execute(array('nb'=>$nb));
+
+        $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
+        return $res;
+    }
 }
 ?>
