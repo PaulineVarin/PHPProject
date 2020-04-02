@@ -26,7 +26,13 @@ if(isset($_GET['id_licence'])) {
     $cat = 'id_marque';
     $tableauArticles = $db->getArticlesMarque($ref,$idcat,$config['nb_images']);
 
-}else {
+}elseif(isset($_GET['id_magasin'])) {
+    $idcat = $_GET['id_magasin'];
+    $cat = 'id_magasin';
+    $tableauArticles = $db->getArticlesMagasin($ref,$idcat,$config['nb_images']);
+}
+
+else {
     $idcat = 0;
     $cat ='all';
     $tableauArticles = $db->getNArticles($ref,$config['nb_images']);
