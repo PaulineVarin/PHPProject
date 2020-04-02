@@ -12,6 +12,8 @@
 <?php
     include("../controler/menu.ctrl.php");
     print("\n");
+
+    
 ?>
 <div>
 <section id="Filtrage">

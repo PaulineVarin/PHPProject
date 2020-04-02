@@ -5,8 +5,9 @@ $db = new DAO($config['data_path']);
 
 //Récupérer toutes mes marques
 $tableauMarques = $db->getAllMarques();
+$nb_articles = $db->getNbArticles();
 
-$tableauArticles = $db->getNArticles($config['nb_images_main']);
+$tableauArticles = $db->getNArticles($config['nb_images_main'],$nb_articles-2);
 
 include("../view/vueMain.view.php");
 ?>
