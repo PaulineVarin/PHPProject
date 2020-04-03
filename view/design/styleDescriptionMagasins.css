@@ -1,0 +1,43 @@
+body{
+  text-align: center;
+}
+
+h1{
+  font-size: 3em;
+  color: blue;
+}
+
+#Magasin_Varin h2{
+  color: orange;
+}
+
+#Magasin_Varin img{
+  height: 50px;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
+
+
+#Magasin_Dupuy h2{
+  color: orange;
+}
+
+#Magasin_Dupuy img{
+  height: 50px;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
+
+#Magasin_Toto h2{
+  color: orange;
+}
+
+
+#Magasin_Toto img{
+  height: 50px;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
