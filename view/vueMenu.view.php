@@ -36,7 +36,7 @@ foreach($nomsMarques as $id=>$nom) {
     </ul>
 </li>
 
-<li><p>Nos magasins</p>
+<li><p>Nos stocks</p>
     <ul>
 <?php
 foreach($nomsMagasins as $id=>$nom) {

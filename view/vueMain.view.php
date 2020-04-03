@@ -30,7 +30,7 @@
     </section>
 
     <section id="marques">
-        <h2>Nos marques</h2>
+        <h2>Présentation de nos partenaires</h2>
         <div>
         <?php
             foreach($tableauMarques as $id => $elem) {

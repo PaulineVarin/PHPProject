@@ -14,7 +14,7 @@
 
 <!-- Section du magasin Varin -->
   <section id="Magasin_Varin">
-    <h2> Le Magasin Varin </h2>
+    <h3> Le Magasin Varin </h3>
     <img src="../view/design/img/magasins/magasinVARIN.png" alt="Affichage Magasin Varin">
 
     <div id="description_Varin">
@@ -30,7 +30,7 @@
 
 <!-- Section du magasin Dupuy -->
   <section id="Magasin_Dupuy">
-    <h2> Le Magasin Dupuy </h2>
+    <h3> Le Magasin Dupuy </h3>
     <img src="../view/design/img/magasins/magasinDUPUY.png" alt="Affichage Magasin Dupuy">
 
     <div id="description_Dupuy">
@@ -46,7 +46,7 @@
 
 <!-- Section du magasin Toto -->
   <section id="Magasin_Toto">
-    <h2> Le Magasin Toto </h2>
+    <h3> Le Magasin Toto </h3>
     <img src="../view/design/img/magasins/magasinTOTO.png" alt="Affichage Magasin Toto">
 
     <div id="description_Toto">
