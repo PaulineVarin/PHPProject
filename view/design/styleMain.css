@@ -11,7 +11,7 @@ h2 {
 
 section div {
     border-top: 1px solid black;
-    
+    padding-top: 50px;
 }
 
 div {
@@ -26,13 +26,19 @@ article {
     margin-right: 50px;;
 }
 
-
 #mes_articles article {
-    width: 200px;;
+    width: 200px;
 }
 
 #mes_articles img {
-    height: 150px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 150px;
+    height: 200px;
+}
+
+#mes_articles article:hover {
+    transform: scale(1.25);
 }
 
 #marques img{

@@ -1,0 +1,8 @@
+body {
+    text-align: center;
+}
+
+#produit {
+    display: flex;
+    border: 1px solid black;
+}

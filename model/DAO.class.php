@@ -126,7 +126,6 @@ class DAO {
             array_push($res,$row[0]);
         }
         return $res;
-
     }
 
     // Acces à un article 
@@ -137,6 +136,50 @@ class DAO {
         $req_select ->execute(array(':ref'=>$i));
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
+        return $res[0];
+    }
+
+    //Acces au nom d'une licence
+    // Retourne une chaine contenant le nom d'une licence connaissant son id
+    function getNomLicence(int $i): string{
+        $sql = "SELECT nom FROM licence WHERE id_licence = :ref";
+        $req_select = $this->db->prepare($sql);
+        $req_select ->execute(array(':ref'=>$i));
+
+        $res = $req_select->fetch(PDO::FETCH_NUM);
+        return $res[0];
+    }
+
+    //Acces au nom d'un type de figurine
+    // Retourne une chaine contenant le nom d'un type de figurine connaissant son id
+    function getNomType(int $i):string {
+        $sql = "SELECT nom FROM typeDeFigurine WHERE id_type= :ref";
+        $req_select = $this->db->prepare($sql);
+        $req_select ->execute(array(':ref'=>$i));
+
+        $res = $req_select->fetch(PDO::FETCH_NUM);
+        return $res[0];
+    }
+
+    //Acces au nom d'une marque
+    // Retourne une chaine contenant le nom d'une marque connaissant son id
+    function getNomMarque(int $i):string{
+        $sql = "SELECT nom FROM marque  WHERE id_marque= :ref";
+        $req_select = $this->db->prepare($sql);
+        $req_select ->execute(array(':ref'=>$i));
+
+        $res = $req_select->fetch(PDO::FETCH_NUM);
+        return $res[0];
+
+    }
+    //Acces au nom d'un magasin
+    // Retourne une chaine contenant le nom d'un magasin connaissant son id
+    function getNomMagasin($i):string {
+        $sql = "SELECT nom FROM magasin WHERE id_magasin = :ref";
+        $req_select = $this->db->prepare($sql);
+        $req_select ->execute(array(':ref'=>$i));
+
+        $res = $req_select->fetch(PDO::FETCH_NUM);
         return $res[0];
     }
 

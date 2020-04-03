@@ -1,7 +1,23 @@
 body {
     text-align: center;
 }
+
+
+#mes_articles article {
+    display: inline-block; /**/
+    vertical-align: top;  /**/
+    margin: 10px;
+    width:200px ;
+}
+
+#mes_articles article:hover {
+    transform: scale(1.25);
+}
+
+
 img {
-    width: 200px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 150px;
     height: 200px;
 }

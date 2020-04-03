@@ -11,27 +11,35 @@
 
 <body>
     <?php
-    include("../controler/menu.ctrl.php");
-    print("\n");
-?>
+        include("../controler/menu.ctrl.php");
+        print("\n");
+    ?>
     <div>
-        <section id="mes_articles">
-            <h2>Votre sélection</h2>
+        <section>
+            <h2><?=$nomFiltre?></h2>
+            <div id="mes_articles">
             <?php
-foreach ($tableauArticles as $id=>$elem) {
-    $idArticle = $elem->getRef();
-    $chemin = $config['image_path'].'articles/'.$elem->getIdLicence().'/'.$elem->getNomPhoto();
-    print("<a href =\"../controler/presentationarticle.ctrl.php?idArticle=$idArticle\"><img src=\"$chemin\" alt=\"\"/></a>\n");
-}
-print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRef\">Précédent</a>\n");
-print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Suiv</a>");
-
-?>
-        </section>
+                foreach ($tableauArticles as $id=>$elem) {
+                    $idArticle = $elem->getRef();
+                    $chemin = $config['image_path'].'articles/'.$elem->getIdLicence().'/'.$elem->getNomPhoto();
+                    print("<article>\n");
+                    print("<a href =\"../controler/presentationarticle.ctrl.php?idArticle=$idArticle\"><img src=\"$chemin\" alt=\"\"/></a>\n");
+                    print("<p>{$elem->getIntitule()}</p>");
+                    print("</article>\n");
+                    if($id+1 == $config['nb_images']/2) {
+                        print("</br>\n");
+                    }
+                }
+            ?>
+            </div>
+            <?php
+                print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRef\">Précédent</a>\n");
+                print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Suiv</a>");
+            ?>
+            </section>
     </div>
-<?php
-include("../controler/footer.ctrl.php");
-?>
+    <?php
+        include("../controler/footer.ctrl.php");
+    ?>
 </body>
-
 </html>
