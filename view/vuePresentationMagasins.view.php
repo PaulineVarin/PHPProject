@@ -26,7 +26,7 @@
           print("<h3> Le {$elem->getNom()}</h3>");
           print("<p>{$elem->getDescription()}</p>");
           print("</div>");
-          print("</article></br>\n");
+          print("</article>\n");
 
         }
       ?> 

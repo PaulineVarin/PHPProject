@@ -8,7 +8,6 @@ if(isset($_GET['ref'])) {
     $ref = $_GET['ref'];
 }else {
     $ref = 1;
-    print("Ma ref est $ref");
 }
 
 if(isset($_GET['id_licence'])) {
@@ -42,8 +41,8 @@ $firstRef = $tableauArticles[0]->getRef();
 $lastRef = $tableauArticles[count($tableauArticles)-1]->getRef();
 
 
-$nextRef = $db->nextN($lastRef,$idcat,$cat); print("next ref : $nextRef");
-$prevRef = $db->prevN($firstRef,$idcat,$cat,$config['nb_images']); print("prev ref : $prevRef");
+$nextRef = $db->nextN($lastRef,$idcat,$cat); 
+$prevRef = $db->prevN($firstRef,$idcat,$cat,$config['nb_images']); 
 
 if($nextRef == -1) {
     $nextRef = $lastRef;

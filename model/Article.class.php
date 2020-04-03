@@ -22,7 +22,7 @@ class Article {
         return $maDescription;
     }
 
-    public function getPrix():int {
+    public function getPrix():string {
         return $this->prix;
     }
 

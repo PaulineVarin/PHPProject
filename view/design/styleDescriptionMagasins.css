@@ -1,8 +1,9 @@
-body{
+body {
   text-align: center;
 }
-
-h2{
+h2 {
+  margin-left: 100px;
+  text-align: center;
   font-size: 3em;
   color: blue;
 }
@@ -11,14 +12,11 @@ h2{
   color: orange;
 }
 
-#nos_magasins>h2 {
-  margin-left: 100px;
-  text-align: center;
-}
-
 #nos_magasins article {
   display: flex;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   width: 1000px;
 }
 
@@ -26,7 +24,7 @@ h2{
   text-align: justify;
   border: 1px solid black;
   margin-left: 50px;
-  width: 500px;
+  width: 800px;
 }
 
 img{
