@@ -4,6 +4,7 @@ class Magasin {
     private $id_magasin;
     private $nom;
     private $descriptionMagasin;
+    private $photo;
 
     //Getters
     function getId():int {
@@ -16,6 +17,10 @@ class Magasin {
 
     function getDescription():string {
         return $this->descriptionMagasin;
+    }
+
+    function getNomPhoto():string {
+        return $this->photo;
     }
 }
 

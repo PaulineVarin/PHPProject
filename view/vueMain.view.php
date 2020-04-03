@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="../view/design/styleMenu.css" type="text/css">
+    <link rel="stylesheet" href="../view/design/styleFooter.css" type="text/css">
     <link rel="stylesheet" href="../view/design/styleMain.css" type="text/css">
     <meta charset="UTF-8" />
     <title>Main</title>
@@ -40,31 +41,13 @@
                 print("<h3>{$elem->getNom()}</h3>");
                 print("<a href =\"../controler/affichermarque.ctrl.php?id_marque=$idMarque\"><img src=\"$chemin\" alt=\"\"/></a>\n");
                 print("</article>\n");
+                print("</br>");
             }
         ?>
         </div>
     </section>
-
-    <footer>
-        <div>
-            <article>
-                <h3>A propos de Figurine House</h3>
-                <ul>
-                    <li><a href="../controler/affichermagasins.ctrl.php">Nos magasins</a></li>
-                    <li><a href="">Nous contacter</a></li>
-                </ul>
-            </article>
-            <article>
-                <h3>Mentions Légales</h3>
-                <ul>
-                    <li><a href="">Cookies</a></li>
-                    <li><a href="">Données personnelles</a></li>
-                </ul>
-            </article>
-        </div>
-        <p>Figurine House Inc. © 2020. All Rights Reserved.</p>
-    </footer>
-
+<?php
+include("../controler/footer.ctrl.php");
+?>
 </body>
-
 </html>

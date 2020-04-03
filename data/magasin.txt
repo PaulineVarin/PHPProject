@@ -1,3 +1,3 @@
-1|Magasin Varin|25 Helen Island 38430 Moirans|Vente de Funko Pop, figurines Nendoroids et Jim Shore
-2|Magasin Dupuy|22 Schuyler Falls 38000 Grenoble|Vente de Funko Pop, figurines Nendoroids et Jim Shore
-3|Magasin Toto|14 Hudson Terrace 98000 Monaco|Vente de Funko Pop, figurines Nendoroids et Jim Shore
+1|Magasin Varin|25 Helen Island 38430 Moirans|Situé en plein coeur de la ville de Moians, le magasin Varin est une référence en matière de vente de figurine depuis 19 ans.Nous vous accueillons du lundi au vendredi de 9h à 18h. Vente de Funko Pop, figurines Nendoroids et Jim Shore|magasinVARIN.png
+2|Magasin Dupuy|22 Schuyler Falls 38000 Grenoble|Situé à Grenoble, dans l'historique quartier commercial de Schuyler Falls, le magasin Dupuy saura satisfaire les collectionneurs passionés ! Nous vous accueillons du mardi au vendredi de 10h à 19h et le samedi de 9h à 12h. Vente de Funko Pop, figurines Nendoroids et Jim Shore|magasinDUPUY.png
+3|Magasin Toto|14 Hudson Terrace 98000 Monaco|Fraichement installé dans la principauté de Monaco, le magasin Toto saura faire rayonner le coeur des amateurs de figurines en tout genre ! Nous vous accueillons du lundi au vendredi de 9h à 18h30.Vente de Funko Pop, figurines Nendoroids et Jim Shore|magasinTOTO.png

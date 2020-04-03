@@ -1,0 +1,18 @@
+footer {
+    background-color:rgba(95, 94, 99, 0.541);
+}
+
+footer div {
+    display: flex;
+    justify-content: left;
+    border-top:1px solid black ;
+}
+
+footer div article {
+    text-align: left;
+    margin-right:50px ;
+}
+
+footer ul {
+    padding-left: 5px;
+}

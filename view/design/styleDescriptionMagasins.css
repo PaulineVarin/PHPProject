@@ -2,18 +2,33 @@ body{
   text-align: center;
 }
 
-h1{
+h2{
   font-size: 3em;
   color: blue;
 }
 
-h3{
+#nos_magasins h3{
   color: orange;
 }
 
+#nos_magasins>h2 {
+  margin-left: 100px;
+  text-align: center;
+}
+
+#nos_magasins article {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+}
+
+#nos_magasins div {
+  text-align: justify;
+  border: 1px solid black;
+  margin-left: 50px;
+  width: 500px;
+}
+
 img{
-  height: 50px;
-  width: 400px;
-  max-width: 100%;
-  height: auto;
+  width: 150px;
 }

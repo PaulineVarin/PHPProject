@@ -2,7 +2,8 @@ CREATE TABLE IF NOT EXISTS magasin(
     id_magasin integer PRIMARY KEY,
     nom text,
     adresse text,
-    descriptionMagasin text
+    descriptionMagasin text,
+    photo text
 );
 
 CREATE TABLE IF NOT EXISTS licence(

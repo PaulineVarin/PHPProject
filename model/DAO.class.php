@@ -1,6 +1,7 @@
 <?php
 require_once("../model/Article.class.php");
 require_once("../model/Marque.class.php");
+require_once("../model/Magasin.class.php");
 
 class DAO {
     // L'objet local PDO de la base de donnée
@@ -16,7 +17,6 @@ class DAO {
             die("Impossible d'établir la connexion");
         }  
     }
-
     //////////////////////////////////////////////////////////
     ///METHODES
     //////////////////////////////////////////////////////////
@@ -54,6 +54,19 @@ class DAO {
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Marque');
         return $res;
 
+    }
+
+    //Acces à tout les magasins
+    //Retourne un tableau contenant un objet Magasin pour chaque magasin présent dans la BD
+    function getAllMagasins():array {
+        $res = array();
+        $sql = "SELECT * from magasin";
+
+        $req_select = $this->db->prepare($sql);
+        $req_select->execute();
+
+        $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Magasin');
+        return $res;
     }
 
     //Acces aux noms des types de figurines
@@ -180,7 +193,7 @@ class DAO {
 
     // Acces à la référence qui suit la référence $ref dans l'ordre des références en fonction ou non d'un catégorie
     // Retourne -1 si ref est la dernière référence
-    function nextN (int $ref,int $ref_categorie, string $nomFiltre):int {
+    function nextN (int $ref,int $idFiltre, string $nomFiltre):int {
         if($nomFiltre=='all'){
             //affichage global
             $sql = "SELECT * FROM article WHERE reference > :ref ORDER BY reference ASC LIMIT 1";
@@ -189,21 +202,21 @@ class DAO {
 
         }elseif($nomFiltre=='id_marque') {
             //En fonction d'une marque
-            $sql = "SELECT * from article WHERE reference >:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=:refcat) ORDER BY reference ASC LIMIT 1";
+            $sql = "SELECT * from article WHERE reference >:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=:filtre) ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array(':ref'=>$ref,':refcat'=>$ref_categorie));
+            $req_select->execute(array(':ref'=>$ref,':filtre'=>$idFiltre));
 
         }elseif($nomFiltre=='id_magasin') {
             //En fonction d'un magasin
-            $sql = "SELECT * FROM article WHERE reference>:ref AND reference IN (SELECT id_article FROM est_disponible WHERE id_magasin=:refcat) ORDER BY reference ASC LIMIT 1";
+            $sql = "SELECT * FROM article WHERE reference>:ref AND reference IN (SELECT id_article FROM est_disponible WHERE id_magasin=:filtre) ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array(':ref'=>$ref,':refcat'=>$ref_categorie));
+            $req_select->execute(array(':ref'=>$ref,':filtre'=>$idFiltre));
 
         }else {
             //En fonction de la licence ou du type de figurine
-            $sql = "SELECT * FROM article WHERE reference > :ref AND $nomFiltre = :refcat ORDER BY reference ASC LIMIT 1";
+            $sql = "SELECT * FROM article WHERE reference > :ref AND $nomFiltre = :filtre ORDER BY reference ASC LIMIT 1";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array(':ref'=>$ref,':refcat'=>$ref_categorie));
+            $req_select->execute(array(':ref'=>$ref,':filtre'=>$idFiltre));
         }
 
         $res = $req_select->fetchAll(PDO::FETCH_CLASS,'Article');
@@ -215,7 +228,7 @@ class DAO {
     }
     // Acces à la référence qui précède de n la référence $ref dans l'ordre des références en fonction ou non d'un catégorie
     // Retourne -1 si pas de ref précédente
-    function prevN(int $ref,int $ref_categorie, string $nomFiltre,int $nb):int {
+    function prevN(int $ref,int $idFiltre, string $nomFiltre,int $nb):int {
         $listeArticles = array();
         if($nomFiltre=='all') {
             //affichage global
@@ -225,22 +238,22 @@ class DAO {
 
         }elseif($nomFiltre=='id_marque'){
             //En fonction d'une marque
-            $sql = "SELECT * from article WHERE reference<:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=:refcat) ORDER BY reference DESC LIMIT :nb";
+            $sql = "SELECT * from article WHERE reference<:ref AND id_typeFigurine IN (SELECT id_type FROM TypeDeFigurine WHERE id_marque=:filtre) ORDER BY reference DESC LIMIT :nb";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array(':ref' => $ref,'refcat'=>$ref_categorie,':nb'=>$nb));
+            $req_select->execute(array(':ref' => $ref,':filtre'=>$idFiltre,':nb'=>$nb));
 
         }elseif($nomFiltre=='id_magasin') {
             //En fonction d'un magasin
-            $sql = "SELECT * FROM article WHERE reference<:ref AND reference IN (SELECT id_article FROM est_disponible WHERE id_magasin=:refcat) ORDER BY reference DESC LIMIT :nb";
+            $sql = "SELECT * FROM article WHERE reference<:ref AND reference IN (SELECT id_article FROM est_disponible WHERE id_magasin=:filtre) ORDER BY reference DESC LIMIT :nb";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array(':ref'=>$ref,':refcat'=>$ref_categorie,':nb'=>$nb));
+            $req_select->execute(array(':ref'=>$ref,':filtre'=>$idFiltre,':nb'=>$nb));
         }
         
         else {
             //En fonction de la licence ou du type de figurine
-            $sql ="SELECT * FROM article WHERE reference <:ref AND $nomFiltre = :refcat ORDER BY reference DESC LIMIT :nb";
+            $sql ="SELECT * FROM article WHERE reference <:ref AND $nomFiltre = :filtre ORDER BY reference DESC LIMIT :nb";
             $req_select = $this->db->prepare($sql);
-            $req_select->execute(array(':ref' => $ref,':refcat'=>$ref_categorie,':nb'=>$nb));
+            $req_select->execute(array(':ref' => $ref,':filtre'=>$idFiltre,':nb'=>$nb));
         }
         
         $listeArticles = $req_select->fetchAll(PDO::FETCH_CLASS,'Article'); 

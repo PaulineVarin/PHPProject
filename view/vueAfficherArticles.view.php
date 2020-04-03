@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="../view/design/styleMenu.css" type="text/css">
+    <link rel="stylesheet" href="../view/design/styleFooter.css" type="text/css">
     <link rel="stylesheet" href="../view/design/styleArticles.css" type="text/css">
     <meta charset="UTF-8" />
     <title>Main</title>
@@ -28,9 +29,11 @@ print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRe
 print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Suiv</a>");
 
 ?>
-
         </section>
     </div>
+<?php
+include("../controler/footer.ctrl.php");
+?>
 </body>
 
 </html>
