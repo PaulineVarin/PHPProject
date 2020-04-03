@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../view/design/styleFooter.css" type="text/css">
     <link rel="stylesheet" href="../view/design/styleArticles.css" type="text/css">
     <meta charset="UTF-8" />
-    <title>Main</title>
+    <title>Liste des articles</title>
 </head>
 
 <body>
