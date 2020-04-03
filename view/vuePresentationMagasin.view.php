@@ -8,11 +8,6 @@
 </head>
 
 <body>
-
-<?php
-  include("../controler/menu.ctrl.php");
-  print("\n");
-?>
   <h1> Nos magasins </h1>
   <h2> Découvrez les points de vente partenaire de Figurine House ! </h2>
 <br>
