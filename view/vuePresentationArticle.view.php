@@ -14,21 +14,24 @@
     <?php
         include("../controler/menu.ctrl.php");
     ?>
-    <article id="produit">
+    <article id="mon_article">
     <?php 
         $chemin = $config['image_path'].'articles/'.$article->getIdLicence().'/'.$article->getNomPhoto();
         $description = $article->getDescription();
 
         print("<img src=\"$chemin\" alt=\"\"/>\n");
-        print("<div>");
-        print("<p>{$article->getIntitule()}</p>");
+        print("<div id=\"produit\">");
+            print("<div id=\"nom_produit\">\n");
+                print("<h2>{$article->getIntitule()}</h2>\n");
+            print("</div>\n");
 
-        foreach($description as $elem) {
-            print("<p>$elem</p></br>\n");
-        }
-        
-        print("<p>{$article->getPrix()}</p>");
-        print("</div>");
+            print("<div id=\"description\">\n");
+                foreach($description as $elem) {
+                    print("<p>$elem</p></br>\n");
+                }
+                print("<p>Prix : {$article->getPrix()}</p>\n");
+            print("</div>\n");
+        print("</div>\n");
     ?>
     </article>
 

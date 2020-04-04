@@ -1,10 +1,40 @@
 body {
     text-align: center;
     font-family: Helvetica,Arial,sans-serif;
+    background-color: #E0D6C1;
 }
 
 
-#produit {
+
+#mon_article {
     display: flex;
-    border: 1px solid black;
+    margin-top: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#mon_article img {
+    width: 400px;
+    height: 400px;
+    margin-right: 50px;
+}
+
+#produit {
+    border: 3px solid white;
+    padding: 1em;
+}
+
+#produit h2 {
+    font-weight: normal;
+    color: #E53C2E;
+}
+
+#produit p {
+    margin: 0px;
+    font-size: 1em;
+}
+
+#description {
+    width: 500px;
+    text-align: justify;
 }

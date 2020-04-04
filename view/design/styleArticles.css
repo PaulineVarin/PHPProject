@@ -11,16 +11,18 @@ h2 {
 }
 
 #mes_articles {
-    padding-top: 20px;
+    padding-top: 50px;
     border-top: 3px solid white;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #mes_articles article {
     display: inline-block; /**/
     vertical-align: top;  /**/
-    margin: 40px;
-    width:200px ;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width:300px ;
 }
 
 #mes_articles article:hover {
@@ -31,6 +33,15 @@ h2 {
 img {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 250px;
-    height: 270px;
+    width: 300px;
+    height: 300px;
+}
+
+#lien:hover, #lien:link,#lien:visited {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+
 }

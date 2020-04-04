@@ -33,9 +33,9 @@
             ?>
             </div>
             <?php
-                print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRef\">Précédent</a>\n");
+                print("<a id=\"lien\" href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$prevRef\">Page précédente</a>\n");
                 if($nextRef!=-1) {
-                    print("<a href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Suiv</a>");
+                    print("<a  id=\"lien\" href =\"../controler/afficherarticles.ctrl.php?$cat=$idcat&ref=$nextRef\">Page suivante</a>");
                 }
             ?>
             </section>

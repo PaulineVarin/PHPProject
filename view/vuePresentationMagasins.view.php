@@ -24,7 +24,7 @@
           print("<img src=\"$chemin\" alt=\"Affichage Magasin\">\n");
           print("<div>");
           print("<h3> Le {$elem->getNom()}</h3>");
-          print("<p>{$elem->getDescription()}</p>");
+          print("<p>{$elem->getDescription()}.</p>");
           print("</div>");
           print("</article>\n");
 
