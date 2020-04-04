@@ -49,10 +49,6 @@ $lastRef = $tableauArticles[count($tableauArticles)-1]->getRef();
 $nextRef = $db->nextN($lastRef,$idcat,$cat); 
 $prevRef = $db->prevN($firstRef,$idcat,$cat,$config['nb_images']); 
 
-if($nextRef == -1) {
-    $nextRef = $lastRef;
-}
-
 if($prevRef == -1) {
     $prevRef = $firstRef;
 }

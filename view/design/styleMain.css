@@ -1,14 +1,17 @@
 body {
     text-align: center;
     background-color: #E0D6C1;
-    font-family: Apple Chancery, cursive;
+    font-family: Helvetica,Arial,sans-serif;
 }
 section {
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 h2 {
     margin-bottom: 0px;
+    font-weight: normal;
+    color: #E53C2E;
 }
 
 section div {
@@ -30,6 +33,10 @@ article {
 
 #mes_articles article {
     width: 200px;
+}
+
+h3 {
+    font-weight: normal;
 }
 
 #mes_articles img {

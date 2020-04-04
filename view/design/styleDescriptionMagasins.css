@@ -1,17 +1,17 @@
 body {
   text-align: center;
   background-color: #E0D6C1;
-  font-family: Apple Chancery, cursive;
+  font-family: Helvetica,Arial,sans-serif;
 }
+
 h2 {
   margin-left: 100px;
   text-align: center;
-  font-size: 3em;
-  color: blue;
+  color: #E53C2E;
 }
 
 #nos_magasins h3{
-  color: orange;
+  color: white;
 }
 
 #nos_magasins article {
