@@ -20,7 +20,7 @@ footer ul {
     padding-left: 5px;
 }
 
-#lienfooter:link,#lienfooter:visited{
+.lienfooter:link,.lienfooter:visited{
     width: 300px;
     text-decoration: none;
     color: white;

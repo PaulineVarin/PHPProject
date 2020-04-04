@@ -41,7 +41,7 @@
                     print("<h3>{$elem->getNom()}</h3>");
                     print("<img src=\"$chemin\" alt=\"\"/>\n");
                     print("</article>\n");
-                    print("</br>");
+                    print("<br>");
                 }
             ?>
         </div>

@@ -27,7 +27,7 @@
 
             print("<div id=\"description\">\n");
                 foreach($description as $elem) {
-                    print("<p>$elem</p></br>\n");
+                    print("<p>$elem</p><br>\n");
                 }
                 print("<p>Prix : {$article->getPrix()}</p>\n");
             print("</div>\n");

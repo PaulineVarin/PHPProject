@@ -46,18 +46,18 @@ li>a{
     width: 200px;
 }
 
-#menu:link, #menu:visited {
+.menu:link, .menu:visited {
     text-decoration: none;
     color: black;
     font-weight: normal;
 }
 
-h1 #menu:link{
+h1 .menu:link{
     color : #E53C2E; 
     font-size: 2em;
 } 
 
-h1 #menu:visited {
+h1 .menu:visited {
     color: #E53C2E;
     font-size: 2em;
 }
