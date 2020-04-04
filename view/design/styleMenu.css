@@ -1,3 +1,7 @@
+nav {
+    background-color: #EB9806;
+    height: 50px;
+}
 ul {
     list-style: none;
 }
@@ -9,12 +13,16 @@ nav>ul {
 
 nav ul li {
     position : relative;
+    background-color: #EB9806;
 }
 
 li>p {
     margin-bottom: 0%;
     margin-top: 0%;
-    width: 150px;;
+    width: 150px;
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 li>ul {
@@ -26,17 +34,19 @@ li>ul {
 }
 
 li:hover>ul {
+    padding: 1em 2em 1em 2em;
     visibility: visible;
+    background-color: #EB9806;
 }
 
 li>a{
     display: inline-block;
     border-bottom: 1px solid rgba(95, 94, 99, 0.541);
     border-collapse: collapse;
-    width: 150px;
+    width: 200px;
 }
 
-a:link, a:visited {
+#menu:link, #menu:visited {
     text-decoration: none;
     color: black;
 }
