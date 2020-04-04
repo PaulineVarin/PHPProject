@@ -24,8 +24,8 @@
             print("<div id=\"nom_produit\">\n");
                 print("<h2>{$article->getIntitule()}</h2>\n");
             print("</div>\n");
-
             print("<div id=\"description\">\n");
+            print("<p>Référence : {$article->getRef()}</p><br>");
                 foreach($description as $elem) {
                     print("<p>$elem</p><br>\n");
                 }
